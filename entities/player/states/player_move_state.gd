@@ -1,7 +1,5 @@
 class_name PlayerMoveState
-extends State
-
-@export var speed: float = 200.0
+extends PlayerState
 
 func enter() -> void:
 	# start move animation
@@ -12,8 +10,13 @@ func exit() -> void:
 	pass
 
 func physics_update(_delta: float) -> void:
-	var direction: float = Input.get_axis("move_left", "move_right")
-	if is_zero_approx(direction):
+	if not player.is_on_floor():
+		change_state.emit(PlayerStates.FALL)
+		return
+	if Input.is_action_just_pressed("jump"):
+		change_state.emit(PlayerStates.JUMP)
+		return
+	_apply_horizontal_movement()
+	if is_zero_approx(player.velocity.x):
 		change_state.emit(PlayerStates.IDLE)
 		return
-	actor.velocity.x = direction * speed
