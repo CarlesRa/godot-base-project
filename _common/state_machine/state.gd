@@ -21,7 +21,7 @@ func physics_update(_delta: float) -> void: pass
 ## Called once by the StateMachine after the state is registered.
 ## Returns false if the state could not be set up.
 func setup(new_actor: CharacterBody2D) -> bool:
-    if not new_actor:
-        return false
-    actor = new_actor
-    return true
+	if not new_actor:
+		return false
+	actor = new_actor
+	return true
