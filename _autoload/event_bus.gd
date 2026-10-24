@@ -1,11 +1,12 @@
+## Global event bus. Holds signals only, no logic.
 extends Node
 
+# Player
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+## Emitted when the player starts a jump.
+@warning_ignore("unused_signal")
+signal player_jumped
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Emitted when the player touches the ground after falling.
+@warning_ignore("unused_signal")
+signal player_landed
