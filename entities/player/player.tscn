@@ -10,7 +10,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkugw"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=871748280]
+[node name="Player" type="CharacterBody2D" unique_id=871748280]
 script = ExtResource("1_bls4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=597616617]

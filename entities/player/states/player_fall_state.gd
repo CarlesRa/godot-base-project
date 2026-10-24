@@ -13,7 +13,11 @@ func physics_update(_delta: float) -> void:
 	_apply_horizontal_movement()
 	if player.is_on_floor() and player.velocity.y >= 0.0:
 		if is_zero_approx(player.velocity.x):
-			change_state.emit(PlayerStates.IDLE)
+			_land(PlayerStates.IDLE)
 			return
-		change_state.emit(PlayerStates.MOVE)
+		_land(PlayerStates.MOVE)
 		return
+
+func _land(next_state: StringName) -> void:
+	change_state.emit(next_state)
+	EventBus.player_landed.emit()

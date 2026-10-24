@@ -2,6 +2,7 @@ class_name PlayerJumpState
 extends PlayerState
 
 func enter() -> void:
+	EventBus.player_jumped.emit()
 	player.velocity.y = player.jump_velocity
 	# start jump animation
 
