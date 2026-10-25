@@ -70,12 +70,12 @@ func _handle_state(state_name: StringName) -> void:
 	if current_state == state_to_change:
 		return
 	_execute_change_state(state_to_change)
-	
+
 func _execute_change_state(state: State) -> void:
-	if not state: 
+	if not state:
 		push_error("_execute_change_state called without value")
 		return
-	if current_state: 
+	if current_state:
 		current_state.exit()
 	if debug:
 		print("change state to %s" % state.name)
