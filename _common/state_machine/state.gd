@@ -4,6 +4,7 @@ class_name State
 extends Node
 
 ## Asks the StateMachine to change to another state, identified by its node name.
+@warning_ignore("unused_signal")
 signal change_state(state_name: StringName)
 
 ## Entity controlled by this state. Assigned by the StateMachine on startup.
